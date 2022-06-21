@@ -49,7 +49,7 @@ public class InvoiceHeaderHandeller {
     }
 
     public ArrayList<InvoiceLinesHandler> getLines() {
-        if(lines == null){
+        if (lines == null) {
             lines = new ArrayList<>();
         }
         return lines;

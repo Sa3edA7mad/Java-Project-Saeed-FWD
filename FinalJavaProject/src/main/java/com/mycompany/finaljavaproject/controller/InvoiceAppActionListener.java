@@ -132,14 +132,16 @@ public class InvoiceAppActionListener implements ActionListener{
             File headFile = fileChooser.getSelectedFile();
             try {
                 FileWriter headerFileWriter = new FileWriter(headFile);
-                var headers = "";
-                var lines = "";
+                String headers = "";
+                String lines = "";
                 for(InvoiceHeaderHandeller invoice : invArray){
-                    headers = headers + invoice.toString() + "\n";
-                    for(InvoiceLinesHandler line : invoice.getLines())
-                            lines = line + line.toString() + "\n" ;
+                    headers += invoice.toString();
+                    headers += "\n";
+                    for(InvoiceLinesHandler line : invoice.getLines()){
+                        lines += line.toString();
+                        lines += "\n";
                         }
-                
+                }
                 headers = headers.substring(0, headers.length()-1);
                 lines = lines.substring(0, lines.length()-1);
                 result = fileChooser.showSaveDialog(frame);
